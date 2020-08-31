@@ -73,7 +73,7 @@ npm run production
   - Vuex [https://vuex.vuejs.org/guide/]
   - Vue-router [https://router.vuejs.org/]
   - SASS [https://sass-lang.com/]
-  - Laravel-Mix (for compiling) [https://laravel.com/docs/5.8/mix]
+  - Laravel-Mix (for compiling) [https://laravel.com/docs/master/mix]
 
 
 ## Credits
