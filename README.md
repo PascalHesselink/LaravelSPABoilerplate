@@ -65,7 +65,7 @@ npm run production
   - Vuex [https://vuex.vuejs.org/guide/]
   - Vue-router [https://router.vuejs.org/]
   - SASS [https://sass-lang.com/]
-  - Font Awesome [https://fontawesome.com/]
+  - Heroicons [https://heroicons.dev/]
   - Laravel-Mix (for compiling) [https://laravel.com/docs/5.8/mix]
 
 

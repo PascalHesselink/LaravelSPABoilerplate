@@ -1,8 +1,6 @@
 let mix         = require('laravel-mix');
 let tailwindcss = require('tailwindcss');
 
-require('laravel-mix-purgecss');
-
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -21,10 +19,6 @@ mix.js('resources/js/app.js', 'public/js')
        postCss        : [tailwindcss('tailwind.config.js')]
    });
 
-mix.copy('resources/img', 'public/img');
-mix.copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/webfonts');
-mix.copy('resources/fonts/', 'public/fonts/');
-
 if (mix.inProduction()) {
-    mix.purgeCss().version();
+    mix.version();
 }
