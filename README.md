@@ -33,9 +33,17 @@ cp .env.example .env
 php artisan migrate
 ```
 
-6 - Run the seeder to create the default admin user
+6 - Run the migrations
+```
+php artisan passport:install
+```
+
+optional - Run the seeder to create the default admin user
 ```
 php artisan db:seed
+
+Username: Admin
+Password: password
 ```
 
 ## Start coding
@@ -53,7 +61,7 @@ npm run watch
 
 ## Deployment
 
-Before deploying your project run the following command to use PurgeCSS:
+Before deploying your project run the following command
 ```
 npm run production
 ```
@@ -65,7 +73,6 @@ npm run production
   - Vuex [https://vuex.vuejs.org/guide/]
   - Vue-router [https://router.vuejs.org/]
   - SASS [https://sass-lang.com/]
-  - Heroicons [https://heroicons.dev/]
   - Laravel-Mix (for compiling) [https://laravel.com/docs/5.8/mix]
 
 
