@@ -1,9 +1,11 @@
 <?php
 
+namespace Database\Seeders;
+
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
-class DefaultUserSeeder extends Seeder
+class DefaultUsersSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +17,7 @@ class DefaultUserSeeder extends Seeder
         User::truncate();
 
         foreach (config('users') as $user) {
-            factory(User::class)
+            User::factory()
                 ->create([
                     'name'  => $user['name'],
                     'email' => $user['email']

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::namespace('Api')->group(function () {
+Route::namespace('App\Http\Controllers\Api')->group(function () {
     Route::group(['prefix' => 'auth'], function ($router) {
         Route::post('register', 'AuthController@register');
         Route::post('login', 'AuthController@login');
@@ -24,9 +24,4 @@ Route::namespace('Api')->group(function () {
             Route::post('logout', 'AuthController@logout');
         });
     });
-});
-
-// User should be authenticated for these routes
-Route::namespace('Api')->middleware('auth:api')->group(function () {
-    //Route::apiResource('users', 'UserController');
 });
