@@ -9,6 +9,9 @@ npm install
 echo -e "Creating environment file"
 cp .env.example-sqlite .env
 
+echo -e "Running development build of NPM"
+npm run dev
+
 echo -e "Creating encryption key"
 php artisan key:generate
 
