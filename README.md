@@ -1,6 +1,6 @@
 # Laravel SPA Boilerplate
 
-Boilerplate for Laravel including Tailwind, Vue, Vuex, Vue-router, Sass, Font Awesome and Laravel-mix.
+Boilerplate for Laravel including Tailwind, Vue, Vuex, Vue-router, Sass, Font and Laravel-mix.
 
 ## Getting Started
 
@@ -18,7 +18,7 @@ composer install
 
 2 - Install the packages via [npm](https://www.npmjs.com/):
 ```
-npm install 
+npm install
 ```
 
 3 - Copy the `.env` file

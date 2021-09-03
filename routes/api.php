@@ -19,7 +19,7 @@ Route::namespace('App\Http\Controllers\Api')->group(function () {
         Route::post('register', 'AuthController@register');
         Route::post('login', 'AuthController@login');
 
-        Route::middleware('auth:api')->group(function () {
+        Route::middleware('auth:sanctum')->group(function () {
             Route::post('me', 'AuthController@me');
             Route::post('logout', 'AuthController@logout');
         });

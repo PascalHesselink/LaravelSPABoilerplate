@@ -21,14 +21,14 @@ class AuthController extends Controller
     {
         if (!auth()->attempt($request->validated())) {
             return response()->json([
-                'error'   => 'Unauthorized',
-                'message' => trans('auth.failed'),
+                    'error'   => 'Unauthorized',
+                    'message' => trans('auth.failed'),
             ], 403);
         }
 
         return response()->json([
-            'access_token' => auth()->user()->createToken('authToken')->accessToken,
-            'user'         => new UserResource(auth()->user()),
+                'access_token' => auth()->user()->createToken('authToken')->plainTextToken,
+                'user'         => new UserResource(auth()->user()),
         ]);
     }
 
@@ -41,14 +41,14 @@ class AuthController extends Controller
     public function register(RegisterRequest $request)
     {
         $user = User::create([
-            'name'     => $request->name,
-            'email'    => $request->email,
-            'password' => bcrypt($request->password),
+                'name'     => $request->name,
+                'email'    => $request->email,
+                'password' => bcrypt($request->password),
         ]);
 
         return response()->json([
-            'access_token' => $user->createToken('authToken')->accessToken,
-            'user'         => new UserResource($user),
+                'access_token' => $user->createToken('authToken')->plainTextToken,
+                'user'         => new UserResource($user),
         ]);
     }
 
@@ -61,7 +61,7 @@ class AuthController extends Controller
     public function me()
     {
         return response()->json([
-            'user' => new UserResource(auth()->user()),
+                'user' => new UserResource(auth()->user()),
         ]);
     }
 
@@ -72,10 +72,10 @@ class AuthController extends Controller
      */
     public function logout()
     {
-        auth()->user()->token()->revoke();
+        auth()->user()->currentAccessToken()->delete();
 
         return response()->json([
-            'message' => 'Successfully logged out'
+                'message' => 'Successfully logged out'
         ]);
     }
 }

@@ -5,7 +5,8 @@ export function authenticate(store, route) {
         if (
             error.response.status === 401
         ) {
-            store.dispatch('clearSession');
+            store.commit('setUser', '');
+            store.commit('setAccessToken', '');
 
             route.push({
                 name : 'login'

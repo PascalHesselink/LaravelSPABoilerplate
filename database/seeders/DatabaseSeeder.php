@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->command->callSilent('migrate:refresh');
-        $this->command->callSilent('passport:install');
 
         $this->call(DefaultUsersSeeder::class);
     }
