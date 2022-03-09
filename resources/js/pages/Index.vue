@@ -7,7 +7,7 @@
         </div>
         <div v-else class="mt-4">
             <span class="text-gray-800 block">You are already authenticated, want to go to the dashboard?</span><br>
-            <router-link :to="{ name: 'dashboard' }" tap g="button" class="px-4 py-1 text-white tracking-wide focus:outline-none bg-blue-500 hover:bg-blue-600">Dashboard</router-link>
+            <router-link :to="{ name: 'dashboard' }" tag="button" class="px-4 py-1 text-white tracking-wide focus:outline-none bg-blue-500 hover:bg-blue-600">Dashboard</router-link>
         </div>
     </div>
 </template>
