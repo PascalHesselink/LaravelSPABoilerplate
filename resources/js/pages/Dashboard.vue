@@ -1,6 +1,6 @@
 <template>
     <div class="py-8">
-        <p>Welcome to the dashboard {{ getUser.name }}</p>
+        <p>Welcome to the dashboard {{ getUser.email }}</p>
         <br>
         <button @click="logoutUser" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 focus:outline-none text-base" type="button">
             Logout

@@ -15,7 +15,7 @@ export default {
             name      : 'index',
             component : Index,
             meta      : {
-                authLevel : 0
+                authLevel : 2
             }
         },
         {

@@ -3,8 +3,8 @@
         <p class="mb-2 text-xl">Login</p>
         <form class="max-w-sm" v-on:submit.prevent="submitForm">
             <div class="mb-4">
-                <input v-model="formData.username" autocomplete="false" class="shadow focus:outline-none border w-full py-2 px-4 px-3" type="text" placeholder="Username" :class="{ 'border-red-700': errors && errors.name }">
-                <span v-if="errors.name" class="text-red-600 text-sm px-2">{{ errors.name[0] }}</span>
+                <input v-model="formData.email" autocomplete="false" class="shadow focus:outline-none border w-full py-2 px-4 px-3" type="email" placeholder="Email" :class="{ 'border-red-700': errors && errors.email }">
+                <span v-if="errors.email" class="text-red-600 text-sm px-2">{{ errors.email[0] }}</span>
             </div>
             <div class="mb-4">
                 <input v-model="formData.password" autocomplete="false" class="shadow focus:outline-none border w-full py-2 px-4 px-3" type="password" placeholder="Password" :class="{ 'border-red-700': errors && errors.password }">
@@ -26,7 +26,7 @@
         data() {
             return {
                 formData : {
-                    username : '',
+                    email : '',
                     password : ''
                 },
                 errors   : {}
@@ -36,7 +36,7 @@
             ...mapMutations(['setUser', 'setAccessToken']),
             submitForm() {
                 axios.post('api/auth/login', {
-                    name     : this.formData.username,
+                    email     : this.formData.email,
                     password : this.formData.password
                 })
                      .then(res => {

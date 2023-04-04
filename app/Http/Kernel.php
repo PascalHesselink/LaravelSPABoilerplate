@@ -9,7 +9,6 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\TrimStrings;
 use App\Http\Middleware\TrustProxies;
 use App\Http\Middleware\VerifyCsrfToken;
-use Fruitcake\Cors\HandleCors;
 use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
 use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
@@ -24,6 +23,7 @@ use Illuminate\Routing\Middleware\ThrottleRequests;
 use Illuminate\Routing\Middleware\ValidateSignature;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
 
 class Kernel extends HttpKernel
 {
@@ -36,12 +36,11 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
-        TrustProxies::class,
-        HandleCors::class,
-        PreventRequestsDuringMaintenance::class,
-        ValidatePostSize::class,
-        TrimStrings::class,
-        ConvertEmptyStringsToNull::class,
+            TrustProxies::class,
+            PreventRequestsDuringMaintenance::class,
+            ValidatePostSize::class,
+            TrimStrings::class,
+            ConvertEmptyStringsToNull::class,
     ];
 
     /**
@@ -54,16 +53,16 @@ class Kernel extends HttpKernel
                     EncryptCookies::class,
                     AddQueuedCookiesToResponse::class,
                     StartSession::class,
-                    // \Illuminate\Session\Middleware\AuthenticateSession::class,
+                // \Illuminate\Session\Middleware\AuthenticateSession::class,
                     ShareErrorsFromSession::class,
                     VerifyCsrfToken::class,
                     SubstituteBindings::class,
             ],
 
             'api' => [
-                // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-                'throttle:api',
-                SubstituteBindings::class,
+                    EnsureFrontendRequestsAreStateful::class,
+                    'throttle:api',
+                    SubstituteBindings::class,
             ],
     ];
 
